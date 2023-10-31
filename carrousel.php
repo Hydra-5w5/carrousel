@@ -36,6 +36,16 @@ function enfiler_script_css()
 }
 add_action('wp_enqueue_scripts', 'enfiler_script_css');
 
+function defile_articles(){
+  return '
+  <div class="defilement">
+    <button class="carrousel__x">X</button>
+    <figure class="carrousel__figure"></figure>
+    <form class="carrousel__form"></form>
+  </div>
+';
+} 
+
 function genere_boite() 
 {
   return '
