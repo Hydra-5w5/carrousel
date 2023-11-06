@@ -22,7 +22,7 @@
  /**
   * Permet de créer le carrousel en parcourant la galerie d'image
   */
- ajouter_img_dans_carrousel()
+ ajouter_img_dans_carrousel();
  
  /**
   * navigation dans le carrousel avec le bouton précédent: carrousel__precedent
@@ -65,10 +65,10 @@
    
    for (const elm of galerie__img)
    {
-     elm.dataset.index = position
+     elm.dataset.index = position;
      elm.addEventListener('mousedown',function(e){
-       index = e.target.dataset.index
-       afficher_image(index)
+       index = e.target.dataset.index;
+       afficher_image(index);
        if (carrousel.classList.contains('carrousel--activer') == false){
        /* ouvrie la boîte modale */
        carrousel.classList.add('carrousel--activer')
@@ -87,17 +87,19 @@
  function creation_img_carrousel(elm){
        //console.log(elm.getAttribute('src'))
        let img = document.createElement('img')
-       // img.setAttribute('src', elm.getAttribute('src'))
+       img.setAttribute('src', elm.getAttribute('src'))
+       console.log(img.src);
        /* retire les 12 dernier caractères « -150x150.jpg »*/
-       let longueur = elm.src.length-12
+       //let longueur = elm.src.length-12
+       console.log(img);
  
       // let extension  =  elm.src.substr(0,-4)
        extension = elm.src.substr(elm.src.lastIndexOf('.'),4)
        console.log("extension="+extension)
-        img.src = elm.src.substr(0,longueur) + extension
+        //img.src = elm.src.substr(0,longueur) + extension;
         img.classList.add('carrousel__img')
         //console.log (img.getAttribute('src'))
-        carrousel__figure.appendChild(img)
+        carrousel__figure.appendChild(img);
  }
  /**
   * Création d'un radio-bouton
@@ -118,7 +120,7 @@
    rad.addEventListener('mousedown', function(e){
      console.log(e.target.dataset.index)
      index = e.target.dataset.index
-     afficher_image(index)
+     afficher_image(index);
    })
  }
  
@@ -133,7 +135,7 @@
    redimensionner_carrousel()
    carrousel__figure.children[index].classList.add('carrousel__img--activer')
    carrousel__form.children[index].checked = true
-   ancien_index = index
+   ancien_index = index;
  }
  
  function redimensionner_carrousel(){
