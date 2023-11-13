@@ -48,22 +48,28 @@
   /******************** Les boutons ********************/
 
   //Fermer la boîte modale
-  btncarrousel__x.addEventListener('mousedown', () => {
-    console.log('fermer la boîte modale');
-    carrousel.classList.remove('carrousel--ouvrir');
-  })
+  if (btncarrousel__x) {
+    btncarrousel__x.addEventListener('mousedown', () => {
+      console.log('fermer la boîte modale');
+      carrousel.classList.remove('carrousel--ouvrir');
+    })
+  }
 
-//Gerer le bouton de flèche droite
-btn__droite.addEventListener('mousedown', function(){
-  index = (index + 1) % carrousel__figure.children.length;
-  afficher_image(index);
-})
+  //Gerer le bouton de flèche droite
+  if (btn__droite) {
+    btn__droite.addEventListener('mousedown', function(){
+      index = (index + 1) % carrousel__figure.children.length;
+      afficher_image(index);
+    })
+  }
 
-//Gerer le bouton de flèche gauche
-btn__gauche.addEventListener('mousedown', function(){
-  index = (index - 1 + carrousel__figure.children.length) % carrousel__figure.children.length;
-  afficher_image(index);
-})
+  //Gerer le bouton de flèche gauche
+  if (btn__gauche) {
+    btn__gauche.addEventListener('mousedown', function(){
+      index = (index - 1 + carrousel__figure.children.length) % carrousel__figure.children.length;
+      afficher_image(index);
+    })
+  }
   /******************** Fontions ********************/
 
   /**
