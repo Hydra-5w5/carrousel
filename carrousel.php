@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Carrousel
- * Author: Eddy Martin
- * Author uri: https://github.com/eddytuto
+ * Author: Hydra
+ * Author uri: https://github.com/Hydra-5w5/carrousel
  * Description: Permet d'afficher les images d'une galerie dans une boîte modale naviguable
  */
 
