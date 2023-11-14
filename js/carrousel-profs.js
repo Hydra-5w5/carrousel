@@ -1,4 +1,5 @@
 (function () {
+
   let indice = 1; // Initialise l'indice à 1 pour commencer avec le bloc du milieu
 
   // Récupère tous les professeurs
@@ -39,10 +40,12 @@
   // Gère le bouton de flèche droite
   boutonDroite.addEventListener('mousedown', function () {
     indice = (indice + 1) % professeurs.length;
+
     mettreAJourAffichage();
   })
 
   // Gère le bouton de flèche gauche
+
   boutonGauche.addEventListener('mousedown', function () {
     indice = (indice - 1 + professeurs.length) % professeurs.length;
     mettreAJourAffichage();
