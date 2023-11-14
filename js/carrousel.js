@@ -1,3 +1,4 @@
+
 (function() {
   console.log('Début du carrousel');
 
@@ -43,6 +44,7 @@
       creation_radio_carrousel();
 
     }
+
   }
 
   /******************** Les boutons ********************/
@@ -93,7 +95,7 @@
    * creation_radio_carrousel
    * Création d'un bouton-radio
    */
-  
+
   function creation_radio_carrousel() 
   {
     let rad = document.createElement('input');
@@ -163,3 +165,4 @@
   }
 
 })()
+
