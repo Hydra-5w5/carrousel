@@ -1,40 +1,50 @@
 (function () {
-  let index = 0; // Initialise l'index à 0
+  let indice = 1; // Initialise l'indice à 1 pour commencer avec le bloc du milieu
 
-  // Récupère tous les blocflexProfs
-  let blocflexProfs = document.querySelectorAll('.blocflex__profs');
+  // Récupère tous les professeurs
+  let professeurs = document.querySelectorAll('.blocflex__profs');
 
-  let btn__gauche = document.querySelector('.btn__gauche');
-  let btn__droite = document.querySelector('.btn__droite');
+  let boutonGauche = document.querySelector('.btn__gauche');
+  let boutonDroite = document.querySelector('.btn__droite');
 
-  // Fonction pour mettre à jour les blocflexProfs affichés
+  // Fonction pour mettre à jour les professeurs affichés
   function mettreAJourAffichage() {
-    // Cache tous les blocflexProfs
-    blocflexProfs.forEach(prof => prof.style.display = 'none');
+    // Cache tous les professeurs et supprime les classes spéciales
+    professeurs.forEach((prof, i) => {
+      prof.style.display = 'none';
+      prof.classList.remove('selectionne');
+      prof.classList.remove('non-selectionne');
+    });
 
-    // Affiche deux blocflexProfs
-    for (let i = 0; i < 2; i++) {
-      let profIndex = (index + i) % blocflexProfs.length;
-      let prof = blocflexProfs[profIndex];
+    // Affiche trois professeurs et ajoute les classes spéciales
+    for (let i = -1; i <= 1; i++) {
+      let indiceProf = (indice + i + professeurs.length) % professeurs.length;
+      let prof = professeurs[indiceProf];
 
+      
       if (prof) {
         prof.style.display = 'flex';
+        if (i === 0) {
+          prof.classList.add('selectionne');
+        } else {
+          prof.classList.add('non-selectionne'); 
+        }
       }
     }
   }
 
-  // Appelle mettreAJourAffichage initialement pour afficher les deux premiers blocflexProfs
+  // Appelle mettreAJourAffichage initialement pour afficher les trois premiers professeurs
   mettreAJourAffichage();
 
   // Gère le bouton de flèche droite
-  btn__droite.addEventListener('mousedown', function () {
-    index = (index + 1) % blocflexProfs.length;
+  boutonDroite.addEventListener('mousedown', function () {
+    indice = (indice + 1) % professeurs.length;
     mettreAJourAffichage();
   })
 
   // Gère le bouton de flèche gauche
-  btn__gauche.addEventListener('mousedown', function () {
-    index = (index - 1 + blocflexProfs.length) % blocflexProfs.length;
+  boutonGauche.addEventListener('mousedown', function () {
+    indice = (indice - 1 + professeurs.length) % professeurs.length;
     mettreAJourAffichage();
   })
 })();
