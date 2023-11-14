@@ -12,9 +12,9 @@
     // Cache tous les blocflexProfs
     blocflexProfs.forEach(prof => prof.style.display = 'none');
 
-    // Affiche trois blocflexProfs
-    for (let i = -1; i <= 1; i++) {
-      let profIndex = (index + i + blocflexProfs.length) % blocflexProfs.length;
+    // Affiche deux blocflexProfs
+    for (let i = 0; i < 2; i++) {
+      let profIndex = (index + i) % blocflexProfs.length;
       let prof = blocflexProfs[profIndex];
 
       if (prof) {
@@ -23,7 +23,7 @@
     }
   }
 
-  // Appelle mettreAJourAffichage initialement pour afficher les trois premiers blocflexProfs
+  // Appelle mettreAJourAffichage initialement pour afficher les deux premiers blocflexProfs
   mettreAJourAffichage();
 
   // Gère le bouton de flèche droite
