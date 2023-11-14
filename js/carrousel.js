@@ -6,12 +6,10 @@
  let carrousel__figure = document.querySelector(".carrousel__figure")
  let carrousel__form = document.querySelector(".carrousel__form")
  let carrousel__precedent = document.querySelector(".carrousel__precedent")
- console.log("carrousel__precedent= "+carrousel__precedent.tagName)
  let carrousel__suivant = document.querySelector(".carrousel__suivant")
- console.log(carrousel__form.tagName)
  /* -------------------------------------------------------- Variable de la galerie */
  let galerie = document.querySelector(".galerie")
- let galerie__img = galerie.querySelectorAll("img")
+ let galerie__img = galerie.querySelectorAll("img");
  // console.log("galerie__img: " + galerie__img.length)
  // console.log(carrousel.tagName)
  /* ------------------------------------------ positionnement de l'image active du carrousel */
@@ -178,6 +176,38 @@
    mdn classList.contain()
  
  */
- 
+    // console.log(images);
+  const articles = document.querySelectorAll("article");
+  //const conteneurArticles = querySelectorAll("class__galerie");
+  const articleArray = Array.from(articles);
+  let indexArticle = 0;
+
+  /***************************************  FONCTIONS  /****************************************/
+  articleArray.forEach(fonctionnaliteBoutons);
+  
+  
+  // function fonctionnaliteBoutons(){
+  //   console.log(indexArticle);
+  //   indexArticle++;
+  //   console.log(articles[indexArticle]);
+  //   function bougerDroite(){
+  //     document.querySelector(".wp-block-gallery").scrollLeft += 500;
+  //     document.querySelector(".wp-block-gallery").scrollRight;
+  //    }
+    
+  //    function bougerGauche(){
+  //     document.querySelector(".wp-block-gallery").scrollLeft -= 500;
+  //     document.querySelector(".wp-block-gallery").scrollRight;
+  //    }
+    
+  //    //Ajouter les fonctions aux boutons
+  //    document.querySelector("article").querySelector(".gauche").onclick = bougerGauche; 
+  //    document.querySelector("article").querySelector(".droite").onclick = bougerDroite;
+      
+  // }
+  
+  
+
  
  })()
+ 
