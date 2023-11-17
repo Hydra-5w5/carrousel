@@ -28,9 +28,9 @@
     mettreAJourAffichage();
     //  Appelle mettreAJourAffichage initialement pour afficher les trois premiers temoignages si l'ecran est en version mobile
     
-    if(longeur > 700){
+    if(longeur > 1280){
         mettreAJourAffichage();
-    } else if(longeur < 700){
+    } else if(longeur < 1280){
         temoignages.forEach(tem => tem.style.display = 'block');
     }
    
