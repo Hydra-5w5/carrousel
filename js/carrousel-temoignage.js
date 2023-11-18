@@ -36,14 +36,19 @@
  
 
   // Gère le bouton de flèche droite
-  btn__droite.addEventListener('mousedown', function () {
-    index = (index + 1) % temoignages.length;
-    mettreAJourAffichage();
-  })
+  if (btn__droite) {
+    btn__droite.addEventListener('mousedown', function () {
+      index = (index + 1) % temoignages.length;
+      mettreAJourAffichage();
+    })
+  }
 
   // Gère le bouton de flèche gauche
-  btn__gauche.addEventListener('mousedown', function () {
-    index = (index - 1 + temoignages.length) % temoignages.length;
-    mettreAJourAffichage();
-  })
+  if (btn__gauche) {
+    btn__gauche.addEventListener('mousedown', function () {
+      index = (index - 1 + temoignages.length) % temoignages.length;
+      mettreAJourAffichage();
+    })
+  }
+
 })();
