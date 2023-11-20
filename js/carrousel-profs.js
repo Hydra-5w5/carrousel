@@ -1,5 +1,5 @@
 (function () {
-
+  console.log("cool");
   let indice = 1; // Initialise l'indice à 1 pour commencer avec le bloc du milieu
 
   // Récupère tous les professeurs
@@ -16,7 +16,7 @@
       prof.classList.remove('selectionne');
       prof.classList.remove('non-selectionne');
     });
-
+    
     // Affiche trois professeurs et ajoute les classes spéciales
     for (let i = -1; i <= 1; i++) {
       let indiceProf = (indice + i + professeurs.length) % professeurs.length;
@@ -56,3 +56,4 @@
   }
 
 })();
+console.log("cool")
