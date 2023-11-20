@@ -38,16 +38,21 @@
   mettreAJourAffichage();
 
   // Gère le bouton de flèche droite
-  boutonDroite.addEventListener('mousedown', function () {
-    indice = (indice + 1) % professeurs.length;
+  if(boutonDroite) {
+    boutonDroite.addEventListener('mousedown', function () {
+      indice = (indice + 1) % professeurs.length;
+  
+      mettreAJourAffichage();
+    })
+  }
 
-    mettreAJourAffichage();
-  })
 
   // Gère le bouton de flèche gauche
+  if (boutonGauche) {
+    boutonGauche.addEventListener('mousedown', function () {
+      indice = (indice - 1 + professeurs.length) % professeurs.length;
+      mettreAJourAffichage();
+    })
+  }
 
-  boutonGauche.addEventListener('mousedown', function () {
-    indice = (indice - 1 + professeurs.length) % professeurs.length;
-    mettreAJourAffichage();
-  })
 })();
