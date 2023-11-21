@@ -1,28 +1,24 @@
 (function () {
-
-  let indice = 1; // Initialise l'indice à 1 pour commencer avec le bloc du milieu
-
-  // Récupère tous les professeurs
+  console.log("cool");
+  let indice = 1; 
+  let tourFini;
+  let indiceProf;
   let professeurs = document.querySelectorAll('.blocflex__profs');
 
   let boutonGauche = document.querySelector('.btn__gauche');
   let boutonDroite = document.querySelector('.btn__droite');
 
-  // Fonction pour mettre à jour les professeurs affichés
   function mettreAJourAffichage() {
-    // Cache tous les professeurs et supprime les classes spéciales
     professeurs.forEach((prof, i) => {
       prof.style.display = 'none';
       prof.classList.remove('selectionne');
       prof.classList.remove('non-selectionne');
     });
-
-    // Affiche trois professeurs et ajoute les classes spéciales
+    
     for (let i = -1; i <= 1; i++) {
-      let indiceProf = (indice + i + professeurs.length) % professeurs.length;
+       indiceProf = (indice + i + professeurs.length) % professeurs.length;
       let prof = professeurs[indiceProf];
-
-      
+     
       if (prof) {
         prof.style.display = 'flex';
         if (i === 0) {
@@ -32,22 +28,26 @@
         }
       }
     }
+
+    if(indice == professeurs.length-1) {
+      tourFini = true;
+      insertAfter(professeurs[0],professeurs[indice]);
+     }
+     if(tourFini == true && professeurs[indiceProf+1]) {
+      console.log(professeurs[indiceProf].parentNode);
+      insertAfter(professeurs[indiceProf+1],professeurs[indiceProf]);
+     }
   }
 
-  // Appelle mettreAJourAffichage initialement pour afficher les trois premiers professeurs
   mettreAJourAffichage();
 
-  // Gère le bouton de flèche droite
   if(boutonDroite) {
     boutonDroite.addEventListener('mousedown', function () {
       indice = (indice + 1) % professeurs.length;
-  
       mettreAJourAffichage();
     })
   }
 
-
-  // Gère le bouton de flèche gauche
   if (boutonGauche) {
     boutonGauche.addEventListener('mousedown', function () {
       indice = (indice - 1 + professeurs.length) % professeurs.length;
@@ -56,3 +56,7 @@
   }
 
 })();
+
+function insertAfter(newNode, existingNode) {
+  existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
+}
