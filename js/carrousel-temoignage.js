@@ -27,6 +27,8 @@
     }
     mettreAJourAffichage();
     //  Appelle mettreAJourAffichage initialement pour afficher les trois premiers temoignages si l'ecran est en version mobile
+      // Met à jour l'affichage chaque fois que la taille de la fenêtre change
+      // window.addEventListener('resize', mettreAJourAffichage);
     
     if(longeur > 1280){
         mettreAJourAffichage();

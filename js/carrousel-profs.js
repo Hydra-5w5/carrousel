@@ -18,12 +18,15 @@
       prof.classList.remove('selectionne');
       prof.classList.remove('non-selectionne');
     });
-    
-    // Affiche trois professeurs et ajoute les classes spéciales
-    for (let i = -1; i <= 1; i++) {
-       indiceProf = (indice + i + professeurs.length) % professeurs.length;
-       prof = professeurs[indiceProf];
-     
+
+    // Détermine le nombre de professeurs à afficher en fonction de la largeur de la fenêtre
+    let nbProfsAAfficher = window.innerWidth >= 1300 ? 3 : 1;
+
+    // Affiche les professeurs et ajoute les classes spéciales
+    for (let i = -Math.floor(nbProfsAAfficher / 2); i <= Math.floor(nbProfsAAfficher / 2); i++) {
+      indiceProf = (indice + i + professeurs.length) % professeurs.length;
+      prof = professeurs[indiceProf];
+
       if (prof) {
         prof.style.display = 'flex';
         if (i === 0) {
@@ -34,10 +37,11 @@
       }
 
     }
-/** MAUVAUS CODE QUI FONCTIONNE
- * Ajoute le prof nécessaire lorsque l'utilisateur recule avec le bouton gauche au lieu d'utiliser les profs générés avec Worpress,
- * 
- */
+
+    /** MAUVAUS CODE QUI FONCTIONNE
+     * Ajoute le prof nécessaire lorsque l'utilisateur recule avec le bouton gauche au lieu d'utiliser les profs générés avec Worpress,
+     * 
+     */
     if(indiceProf == 0) {
       tourFini = true;
       insertAfter(prof,professeurs[indice]);
@@ -81,6 +85,9 @@
 
   // Appelle mettreAJourAffichage initialement pour afficher les trois premiers professeurs
   mettreAJourAffichage();
+
+ // Met à jour l'affichage chaque fois que la taille de la fenêtre change
+  window.addEventListener('resize', mettreAJourAffichage);
 
   // Gère le bouton de flèche droite
   if(boutonDroite) {
