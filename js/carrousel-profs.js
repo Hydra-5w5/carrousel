@@ -1,8 +1,6 @@
 (function () {
   let indice = 1; // Initialise l'indice à 1 pour commencer avec le bloc du milieu
   let tourFini = false; // Vérifie si le carrousel à été vu au complet
-  let recule = false;
-  let avance = true; //
   let indiceProf;
   let prof;
   // Récupère tous les professeurs
@@ -27,9 +25,17 @@
       if (prof) {
         prof.style.display = 'flex';
         if (i === 0) {
+          
           prof.classList.add('selectionne');
+          
+          
         } else {
           prof.classList.add('non-selectionne'); 
+          if(prof.classList.contains('gauche')){
+            prof.classList.remove('gauche');
+          }else if(prof.classList.contains('droite')){
+            prof.classList.remove('droite');
+          }
         }
       }
 
@@ -75,8 +81,8 @@
      if(indiceProf == 1 && tourFini == true) {
       prof.parentNode.insertBefore(professeurs[professeurs.length-1],professeurs[indice]);
      }
-     console.log("indiceProf: " + indiceProf);
-     console.log("indice: " + indice);
+     //console.log("indiceProf: " + indiceProf);
+    // console.log("indice: " + indice);
      
      
   }
@@ -88,7 +94,7 @@
   if(boutonDroite) {
     boutonDroite.addEventListener('mousedown', function () {
       indice = (indice + 1) % professeurs.length;
-  
+      prof.classList.add('droite');
       mettreAJourAffichage();
     })
   }
@@ -98,6 +104,8 @@
   if (boutonGauche) {
     boutonGauche.addEventListener('mousedown', function () {
       indice = (indice - 1 + professeurs.length) % professeurs.length;
+      professeurs[indice].classList.add('gauche');
+      console.log(prof);
       mettreAJourAffichage();
     })
   }
