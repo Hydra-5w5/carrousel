@@ -117,4 +117,8 @@ button:active {
 .carrousel__droite:hover, .carrousel__gauche:hover, .carrousel__x:hover {
   cursor: pointer;
   background-color: #bf323d;
+}
+
+.carrousel__form {
+  display: none;
 }/*# sourceMappingURL=style.css.map */
