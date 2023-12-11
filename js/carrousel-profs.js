@@ -84,16 +84,19 @@
      //console.log("indiceProf: " + indiceProf);
     // console.log("indice: " + indice);
      
-     
   }
 
   // Appelle mettreAJourAffichage initialement pour afficher les trois premiers professeurs
   mettreAJourAffichage();
 
+ // Met à jour l'affichage chaque fois que la taille de la fenêtre change
+  window.addEventListener('resize', mettreAJourAffichage);
+
   // Gère le bouton de flèche droite
   if(boutonDroite) {
     boutonDroite.addEventListener('mousedown', function () {
       indice = (indice + 1) % professeurs.length;
+
       prof.classList.add('droite');
       mettreAJourAffichage();
     })

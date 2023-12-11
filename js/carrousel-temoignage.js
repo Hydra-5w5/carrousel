@@ -27,6 +27,8 @@
     }
     mettreAJourAffichage();
     //  Appelle mettreAJourAffichage initialement pour afficher les trois premiers temoignages si l'ecran est en version mobile
+      // Met à jour l'affichage chaque fois que la taille de la fenêtre change
+      // window.addEventListener('resize', mettreAJourAffichage);
     
     if(longeur > 1280){
         mettreAJourAffichage();
@@ -36,15 +38,19 @@
    
   
     // Gère le bouton de flèche droite
-    btn__droite.addEventListener('mousedown', function () {
-      index = (index + 1) % temoignages.length;
-      mettreAJourAffichage();
-    })
-  
+    if(btn__droite) {
+      btn__droite.addEventListener('mousedown', function () {
+        index = (index + 1) % temoignages.length;
+        mettreAJourAffichage();
+      })
+    }
     // Gère le bouton de flèche gauche
-    btn__gauche.addEventListener('mousedown', function () {
-      index = (index - 1 + temoignages.length) % temoignages.length;
-      mettreAJourAffichage();
-    })
+    if(btn__gauche) {
+      btn__gauche.addEventListener('mousedown', function () {
+        index = (index - 1 + temoignages.length) % temoignages.length;
+        mettreAJourAffichage();
+      })
+    }
+
   })();
   

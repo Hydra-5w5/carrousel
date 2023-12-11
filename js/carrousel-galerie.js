@@ -1,6 +1,5 @@
 (function() {
-  console.log('Début du carrousel');
-
+  
   /******************** Variable du carrousel ********************/
 
   let carrousel = document.querySelector('.carrousel');
