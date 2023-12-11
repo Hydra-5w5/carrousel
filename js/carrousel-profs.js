@@ -46,41 +46,45 @@
  */
     if(indiceProf == 0) {
       tourFini = true;
-      insertAfter(prof,professeurs[indice]);
-     }
-     if(tourFini == true) {
-      insertAfter(prof,professeurs[indice]);
-     }
-     if(indiceProf == 1 && tourFini == false )  {
+      if(professeurs[indice]) {
+        insertAfter(prof,professeurs[indice]);
+      }
+    }
+    if(tourFini == true) {
+      if(professeurs[indice]) {
+        insertAfter(prof,professeurs[indice]);
+      }
+    }
+    if(indiceProf == 1 && tourFini == false && professeurs[professeurs.length-1])  {
       prof.parentNode.insertBefore(professeurs[professeurs.length-1],professeurs[indice]);
-     }
-     if(indiceProf == 0 && tourFini == true) {
+    }
+    if(indiceProf == 0 && tourFini == true && professeurs[professeurs.length-2]) {
       prof.parentNode.insertBefore(professeurs[professeurs.length-2],professeurs[indice]);
-     }
-     if(indiceProf == 8 && tourFini == true) {
+    }
+    if(indiceProf == 8 && tourFini == true && professeurs[professeurs.length-3]) {
       prof.parentNode.insertBefore(professeurs[professeurs.length-3],professeurs[indice]);
-     }
-     if(indiceProf == 7 && tourFini == true) {
+    }
+    if(indiceProf == 7 && tourFini == true && professeurs[professeurs.length-4]) {
       prof.parentNode.insertBefore(professeurs[professeurs.length-4],professeurs[indice]);
-     }
-     if(indiceProf == 6 && tourFini == true) {
+    }
+    if(indiceProf == 6 && tourFini == true && professeurs[professeurs.length-5]) {
       prof.parentNode.insertBefore(professeurs[professeurs.length-5],professeurs[indice]);
-     }
-     if(indiceProf == 5 && tourFini == true) {
+    }
+    if(indiceProf == 5 && tourFini == true && professeurs[professeurs.length-6]) {
       prof.parentNode.insertBefore(professeurs[professeurs.length-6],professeurs[indice]);
-     }
-     if(indiceProf == 4 && tourFini == true) {
+    }
+    if(indiceProf == 4 && tourFini == true && professeurs[professeurs.length-7]) {
       prof.parentNode.insertBefore(professeurs[professeurs.length-7],professeurs[indice]);
-     }
-     if(indiceProf == 3 && tourFini == true) {
+    }
+    if(indiceProf == 3 && tourFini == true && professeurs[professeurs.length-8]) {
       prof.parentNode.insertBefore(professeurs[professeurs.length-8],professeurs[indice]);
-     }
-     if(indiceProf == 2 && tourFini == true) {
+    }
+    if(indiceProf == 2 && tourFini == true && professeurs[professeurs.length-9] instanceof Node) {
       prof.parentNode.insertBefore(professeurs[professeurs.length-9],professeurs[indice]);
-     }
-     if(indiceProf == 1 && tourFini == true) {
+    }
+    if(indiceProf == 1 && tourFini == true && professeurs[professeurs.length-1] instanceof Node) {
       prof.parentNode.insertBefore(professeurs[professeurs.length-1],professeurs[indice]);
-     }
+    }
      //console.log("indiceProf: " + indiceProf);
     // console.log("indice: " + indice);
      
