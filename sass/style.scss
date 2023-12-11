@@ -40,16 +40,21 @@
 
 // BOUTON FERMETURE
 .carrousel__x {
+  width: 2em;
+  height: 2em;
   position: absolute;
-  background-color: rgb(0, 0, 0);
-  border: 2px solid rgb(47, 47, 47);
+  background-color: #E63946;
+  border-radius: 10px;
+  border: none;
   padding: 0.5rem;
   cursor: pointer;
   color: rgb(255, 255, 255);
   font-weight: bold;
+  font-size: 28px;
   top: 5px;
   right: 5px;
   z-index: 3;
+  transition: transform 0.1s ease;
 }
 
 // LES ÉTATS
@@ -75,21 +80,50 @@
  // LES FLÈCHES
 .carrousel__droite {
   position: absolute;
-  right: 0;
+  width: 1.5em;
+  height: 1.5em;
+  right: 0.5em;
   top: 50%;
   z-index: 3;
-  background-color: rgb(0, 0, 0);
+  background-color: #E63946;
+  border-radius: 15px;
   border: none;
   color: white;
   font-size: 2rem;
+  transition: transform 0.1s ease;
 }
 .carrousel__gauche {
   position: absolute;
+  width: 1.5em;
+  height: 1.5em;
   z-index: 3;
-  background-color: rgb(0, 0, 0);
+  background-color: #E63946;
+  border-radius: 15px;
   border: none;
   color: white;
   font-size: 2rem;
-  left: 0;
+  left: 0.5em;
   top: 50%;
+  transition: transform 0.1s ease;
+}
+
+@keyframes pressAnimation {
+  to {
+    transform: scale(0.95);
+  }
+}
+
+button:active {
+  animation: pressAnimation 0.1s ease;
+  transform: scale(0.95);
+  
+}
+.carrousel__droite:hover,.carrousel__gauche:hover,.carrousel__x:hover{
+cursor: pointer;
+background-color: #bf323d;
+}
+
+// BOUTONS FORM
+.carrousel__form{
+  display: none;
 }
