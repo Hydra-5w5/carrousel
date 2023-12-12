@@ -1,56 +1,59 @@
 (function () {
-    let index = 0; // Initialise l'index à 0
-    let longeur = window.innerWidth;
-    let hauteur = window.innerHeight;
-    // Récupère tous les témoignages
-    let temoignages = document.querySelectorAll('.video');
-    let btn__gauche = document.querySelector('.btn__gauche');
-    let btn__droite = document.querySelector('.btn__droite');
-    
-    // Fonction pour mettre à jour les temoignages affichés
-    function mettreAJourAffichage() {
-       
-        
-      // Cache tous les temoignages 
-      temoignages.forEach(tem => tem.style.display = 'none');
-        
-      
-      // Affiche un temoignage
-      for (let i = 0; i < 1; i++) {
-        let temIndex = (index + i + temoignages.length) % temoignages.length;
-        let tem = temoignages[temIndex];
-  
-        if (tem) {
-          tem.style.display = 'block';
-        }
-      }
-    }
-    mettreAJourAffichage();
-    //  Appelle mettreAJourAffichage initialement pour afficher les trois premiers temoignages si l'ecran est en version mobile
-      // Met à jour l'affichage chaque fois que la taille de la fenêtre change
-      // window.addEventListener('resize', mettreAJourAffichage);
-    
-    if(longeur > 1280){
-        mettreAJourAffichage();
-    } else if(longeur < 1280){
-        temoignages.forEach(tem => tem.style.display = 'block');
-    }
-   
-  
-    // Gère le bouton de flèche droite
-    if(btn__droite) {
-      btn__droite.addEventListener('mousedown', function () {
-        index = (index + 1) % temoignages.length;
-        mettreAJourAffichage();
-      })
-    }
-    // Gère le bouton de flèche gauche
-    if(btn__gauche) {
-      btn__gauche.addEventListener('mousedown', function () {
-        index = (index - 1 + temoignages.length) % temoignages.length;
-        mettreAJourAffichage();
-      })
-    }
+  let temoignages = document.querySelectorAll('.blocflex__temoignage');
+  let indexCourant = 0;
+  let btnGauche = document.querySelector('.btn__gauche')
+  let btnDroite = document.querySelector('.btn__droite')
+  let touchStartX;
+  let touchEndX;
 
-  })();
+  function afficherTemoignage() {
+    temoignages.forEach((temoignage, index) => {
+      temoignage.style.display = index === indexCourant ? 'block' : 'none';
+    });
+  }
+
+  function temoignageSuivant() {
+    indexCourant = (indexCourant + 1) % temoignages.length;
+    afficherTemoignage();
+  }
+
+  function temoignagePrecedent() {
+    indexCourant = (indexCourant - 1 + temoignages.length) % temoignages.length;
+    afficherTemoignage();
+  }
+
+  function handleTouchStart(e) {
+    touchStartX = e.touches[0].clientX;
+  }
+
+  function handleTouchMove(e) {
+    touchEndX = e.touches[0].clientX;
+  }
+
+  function handleTouchEnd() {
+    if (touchStartX - touchEndX > 100) {
+      temoignageSuivant();
+    } else if (touchStartX - touchEndX < -100) {
+      temoignagePrecedent();
+    }
+  }
+
+  if(btnGauche) {
+    btnGauche.addEventListener('click', temoignagePrecedent);
+  }
+
+  if(btnDroite) {
+    btnDroite.addEventListener('click', temoignageSuivant);
+  }
   
+  if (temoignages) {
+    temoignages.forEach((temoignage) => {
+      temoignage.addEventListener('touchstart', handleTouchStart);
+      temoignage.addEventListener('touchmove', handleTouchMove);
+      temoignage.addEventListener('touchend', handleTouchEnd);
+    });
+  }
+
+
+  afficherTemoignage();
+})();
